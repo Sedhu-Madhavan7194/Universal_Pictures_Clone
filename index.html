@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="icon" href="https://i.postimg.cc/Rhm5DphT/main-logo.png">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0;
+        }
+
+        #Header-Master-Container {
+            background-color: black;
+            width: 100%;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: fixed;
+            z-index: 1;
+        }
+
+        #Universal-Pictures-Icon {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 1.5%;
+            height: 86px;
+            width: fit-content;
+        }
+
+        #Header-ancor {
+            display: flex;
+            align-items: center;
+            width: 30%;
+            height: 68px;
+            gap: 60px;
+            padding-right: 80px;
+        }
+
+
+
+        .Header-ancor-tags {
+            color: white;
+            /* padding-left: 10%;
+    padding-right: 10%; */
+            text-decoration: none;
+            padding-bottom: 23px;
+            padding-top: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            /* border: 1px solid green; */
+        }
+
+        .Header-ancor-tags-tag {
+            text-decoration: none;
+            color: white;
+        }
+
+        #dots {
+            font-size: 50px;
+        }
+
+        #dot-dropdown-container {
+            margin-bottom: 33px;
+        }
+
+        #dot-dropdown-container:hover #dot-dropdown {
+            display: flex;
+        }
+
+        #dot-dropdown {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            width: 330px;
+            height: 360px;
+            top: 67px;
+            right: 300px;
+            background-color: rgb(0, 115, 255);
+            box-shadow: 0px 0px 10px 0px black;
+
+        }
+
+        .dot-ancor:hover {
+            background-color: rgba(92, 91, 91, 0.267);
+        }
+
+        .dot-ancor {
+            text-decoration: none;
+            color: white;
+            padding-left: 20px;
+            align-content: center;
+            font-weight: 400;
+            height: 50px;
+        }
+
+        #Universal-Pictures-Icon-Mini {
+            display: none;
+        }
+
+        #Header-Container {
+            display: flex;
+            /* justify-content: left; */
+            padding-right: 20px;
+            align-content: center;
+        }
+
+        .Header-ancor-tags:hover {
+            background-color: rgba(126, 125, 125, 0.255);
+        }
+
+        .Header-ancor-tags:hover .Header-dropdown-main-Container {
+            display: flex;
+
+        }
+
+        .Header-dropdown-main-Container {
+            position: absolute;
+            display: none;
+            width: 640px;
+            height: 240px;
+            top: 67px;
+            right: 300px;
+            /* border: 2px solid red; */
+            box-shadow: 0px 0px 10px 0px black;
+            background-color: white;
+        }
+
+        .sub-div-1 {
+            width: 440px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            /* border: 1px solid black; */
+        }
+
+        .movie-div:hover {
+            box-shadow: 0px 0px 5px 0px black;
+        }
+
+        .movie-div {
+            /* border: 1px solid black; */
+            width: 110px;
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .Movie-Image {
+            padding-top: 5px;
+            width: 80px;
+            height: fit-content;
+        }
+
+        .Movie-Name {
+            text-decoration: none;
+            font-size: small;
+            font-weight: bold;
+        }
+
+        .Movie-status {
+            text-decoration: none;
+            text-align: center;
+            font-size: x-small;
+            color: rgba(97, 94, 94, 0.889);
+        }
+
+        .sub-div-2 {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* border: 1px solid rgb(31, 255, 6); */
+            background-color: rgba(0, 136, 255, 0.888);
+        }
+
+        .sub-div-2-ancors:hover {
+            background-color: rgba(104, 103, 103, 0.232);
+        }
+
+        .sub-div-2-ancors {
+            /* border: 1px solid purple; */
+            width: 100%;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            padding-top: 8px;
+            padding-bottom: 8px;
+
+        }
+
+        .dropdown {
+            display: none;
+            /* position: absolute; */
+            /* top: 10px; */
+            /* padding: 5px;
+    background-color: rgb(0, 0, 0); */
+        }
+
+        .btn-secondary {
+            background-color: rgb(0, 0, 0) !important;
+            border: 0px;
+        }
+
+        .btn-secondary:hover {
+            background-color: black;
+        }
+
+        .dropdown-menu {
+            background-color: black;
+        }
+
+        .dropdown-item {
+            color: white;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(134, 133, 133, 0.315);
+            color: white;
+        }
+
+        .fa-brands {
+            color: white;
+            font-size: 25px;
+            padding: 8px;
+        }
+
+        #Header-Icons {
+            width: 300px;
+        }
+
+        @media screen and (max-width : 1220px) {
+            #Header-Icons {
+                display: none;
+            }
+
+            #dot-dropdown {
+                display: none !important;
+            }
+
+            .Header-dropdown-main-Container {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width : 767px) {
+            #Universal-Pictures-Icon {
+                display: none;
+            }
+
+            #Header-Master-Container {
+                height: 57px;
+            }
+
+            #Universal-Pictures-Icon-Mini {
+                display: inline-block;
+                position: absolute;
+                height: 57px;
+                top: 0;
+                left: 1.5%;
+
+            }
+
+            .dropdown {
+                display: block;
+            }
+
+            #Header-ancor {
+                display: none;
+            }
+        }
+
+        #hero {
+            padding-top: 68px;
+            display: flex;
+        }
+
+        #carouselExample {
+            width: 75%;
+        }
+
+        .carousel-control-pre {
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+            border: 0cap;
+            background-color: rgba(244, 255, 244, 0) !important;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            /* background-color: rgb(233, 233, 233); */
+            border-radius: 50%;
+            border: 0px !important;
+            border: 2px solid white;
+        }
+
+        .carousel-control-nex {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+            border: 0cap;
+            background-color: rgba(244, 255, 244, 0) !important;
+        }
+
+        .baner-buton {
+            width: fit-content;
+            height: 40px;
+            background-color: #2473d2;
+            border-radius: 20px;
+            padding-left: 40px;
+            position: absolute;
+            bottom: 22px;
+            left: 40%;
+            align-content: center;
+        }
+
+        .baner-buton-in1 {
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            border: 0px;
+            margin-left: 30px;
+            margin-right: 3px;
+            background-color: #2164ae;
+            color: white;
+        }
+
+        .ancor-button {
+            text-decoration: none;
+            font-weight: 500;
+            color: white;
+        }
+
+        .baner-buton:hover {
+            background-color: #2164ae;
+        }
+
+        .baner-buton:hover .baner-buton-in1 {
+            background-color: #2473d2;
+        }
+
+        .baner-buton2 {
+            width: fit-content;
+            height: 40px;
+            background-color: white;
+            border-radius: 20px;
+            padding-left: 40px;
+            position: absolute;
+            bottom: 22px;
+            align-content: center;
+        }
+
+        .ancor-button2 {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2473d2;
+        }
+
+        .baner-buton-in2 {
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            border: 0px;
+            margin-left: 30px;
+            margin-right: 3px;
+            background-color: #f5f3f4;
+            color: #2473d2;
+        }
+
+        .baner-buton2:hover {
+            background-color: #f5f3f4;
+        }
+
+        .baner-buton2:hover .baner-buton-in2 {
+            background-color: white;
+        }
+
+        #button-left {
+            left: 100px;
+        }
+
+        #button-right {
+            right: 100px;
+        }
+
+        #hero-movie-div {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.886);
+        }
+
+        .hero-movies {
+            display: flex;
+            padding: 3%;
+            height: 19%;
+            border-bottom: 1px solid rgba(49, 49, 49, 0.971);
+        }
+
+        .hero-movies-images {
+            width: 35%;
+        }
+
+        .hero-movies-inner-text {
+            display: flex;
+            flex-direction: column;
+            padding: 3%;
+        }
+
+        .Movie-Name2 {
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .Movie-status2 {
+            text-decoration: none;
+            color: white;
+        }
+
+        #movie-div {
+            display: none;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.899);
+        }
+
+        .hero-movies2 {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            border-right: 1px solid rgba(121, 121, 121, 0.433);
+            padding: 1%;
+        }
+
+        .hero-movies:hover {
+            background-color: black;
+        }
+
+        .hero-movies2:hover {
+            background-color: black;
+        }
+
+        @media screen and (max-width : 1220px) {
+            .baner-buton2 {
+                display: none;
+            }
+
+            #carouselExample {
+                width: 100%;
+            }
+
+            #hero-movie-div {
+                display: none;
+            }
+
+            #movie-div {
+                display: flex;
+            }
+        }
+
+        @media screen and (max-width : 1020px) {}
+
+        @media screen and (max-width : 767px) {
+            .baner-buton {
+                display: none;
+            }
+
+            #hero {
+                padding-top: 58px;
+            }
+
+            .Movie-Name2,
+            .Movie-status2 {
+                font-size: x-small !important;
+            }
+        }
+
+        @media screen and (max-width : 300px) {
+
+            .carousel-control-nex,
+            .carousel-control-pre {
+                display: none;
+            }
+
+            .Movie-Name2,
+            .Movie-status2 {
+                font-size: 6px !important;
+            }
+
+        }
+
+        * {
+            transition: width 0.3s;
+        }
+
+        #Second-Hero {
+            width: 100%;
+            height: fit-content;
+            /* border: 1px solid greenyellow; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 2s;
+            padding-bottom: 3%;
+        }
+
+        .Second-Hero-div1 {
+            width: 80%;
+            padding-top: 2%;
+            padding-bottom: 1%;
+            /* border: 1px solid red; */
+            height: fit-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #hero2-div1-1 {
+            font-weight: 500;
+            color: black;
+        }
+
+        #hero2-div1-2 {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            border-radius: 25PX;
+            padding-left: 10PX;
+            padding-right: 10PX;
+            height: 30PX;
+        }
+
+        #hero2-div1-2:hover {
+            background-color: rgba(255, 0, 0, 0.797);
+        }
+
+        .Second-Hero-div2 {
+            width: 80%;
+            /* border: 1px solid red; */
+            height: fit-content;
+            display: flex;
+
+        }
+
+        .hero2-div2-1 {
+            width: 25%;
+            /* border: 1px solid black; */
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding-left: 1%;
+            padding-right: 1%;
+            /* border-radius: 20px; */
+        }
+
+        .Trailer1 {
+            width: 100%;
+        }
+
+        .hero2-div2-1:hover {
+            box-shadow: 0px 0px 10px 0px black;
+            width: 28%;
+        }
+
+        @media screen and (max-width : 767px) {
+            .disapear {
+                display: none;
+            }
+
+            .hero2-div2-1 {
+                width: 50%;
+            }
+
+            .hero2-div2-1:hover {
+                box-shadow: 0px 0px 10px 0px black;
+                width: 53%;
+            }
+        }
+
+        @media screen and (max-width : 300px) {
+            .disapear2 {
+                display: none;
+            }
+
+            .hero2-div2-1 {
+                width: 95%;
+            }
+
+            .hero2-div2-1:hover {
+                box-shadow: 0px 0px 10px 0px black;
+                width: 100%;
+            }
+        }
+
+        #third-hero-main-container {
+            width: 100%;
+            border: 1px solid black;
+            height: fit-content;
+            display: flex;
+        }
+
+        #third-hero-container-1 {
+            width: 50%;
+
+        }
+
+        #third-hero-image-1 {
+            width: 100%;
+        }
+
+        #third-hero-container-2 {
+            width: 50%;
+            border: 1px solid black;
+            background-image: url(https://www.universalpictures.com/assets/img/page-home/signup-background.jpg);
+            background-size: contain;
+        }
+
+        #signup-container {
+            /* border: 2px solid white; */
+            /* height: 200px; */
+            margin-right: 40%;
+            margin-top: 10%;
+            margin-left: 3%;
+            height: 75%;
+        }
+
+        #heading-hero3 {
+            color: rgb(0, 102, 255);
+            font-size: 40px;
+        }
+
+        #para-hero3 {
+            color: white;
+        }
+
+        form {
+            display: flex;
+            border: 1px solid white;
+            width: 250px;
+            height: 35px;
+            border-radius: 17.5px;
+        }
+
+        input {
+            background: none;
+            outline: 0cap;
+            border: 0cap;
+            padding-left: 5px;
+            color: white;
+            width: 90%;
+        }
+
+        #submit {
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+        }
+
+        @media screen and (max-width : 1020px) {
+            #third-hero-main-container {
+                flex-direction: column;
+            }
+
+            #third-hero-container-1 {
+                width: 100%;
+
+            }
+
+            #third-hero-container-2 {
+                width: 100%;
+                display: none;
+
+            }
+        }
+
+        @media screen and (max-width : 1220px) {
+            #heading-hero3 {
+                font-size: 25px;
+            }
+        }
+
+        #hero-4 {
+            padding-left: 7%;
+            padding-right: 7%;
+            width: 100%;
+            /* border: 5px solid rgb(255, 47, 47); */
+            height: fit-content;
+            background-color: black;
+            display: flex;
+        }
+
+        .hero-4-container-1 {
+            width: 50%;
+            height: fit-content;
+            /* border: 5px solid rgb(47, 255, 147); */
+            display: flex;
+        }
+
+        .hero-4-subcontainer {
+            width: 50%;
+            height: fit-content;
+            /* border: 5px solid rgb(0, 0, 0); */
+            padding: 3%;
+
+            border-right: 1px solid rgba(103, 102, 102, 0.934);
+        }
+
+        .boder-left {
+            border-left: 1px solid rgba(103, 102, 102, 0.934);
+        }
+
+        .hero-4-para {
+            color: white;
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+        .hero-4-para2 {
+            color: rgba(177, 172, 172, 0.856);
+            font-size: 12px;
+        }
+
+        #botem-image {
+            display: flex;
+            width: 100%;
+        }
+
+        .botem-images {
+            width: 50%;
+        }
+
+        @media screen and (max-width : 1220px) {
+            #hero-4 {
+                flex-direction: column;
+                padding-left: 0%;
+                padding-right: 0%;
+            }
+
+            .hero-4-container-1 {
+                width: 100%;
+                border-bottom: 1px solid rgba(103, 102, 102, 0.934);
+            }
+
+            .boder-left {
+                border-left: 0px;
+            }
+        }
+
+        @media screen and (max-width : 1020px) {
+            #botem-image {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .botem-images {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width : 720px) {
+            .hero-4-container-1 {
+                flex-direction: column;
+                border-bottom: 0px;
+            }
+
+            .hero-4-subcontainer {
+                width: 100%;
+                border-bottom: 1px solid rgba(103, 102, 102, 0.934);
+            }
+        }
+
+        @media screen and (max-width : 400px) {
+            .hero-4-para {
+                font-size: 15px;
+            }
+        }
+
+        #foter {
+            width: 100%;
+            padding-top: 2%;
+            background-color: rgba(13, 13, 13, 0.968);
+            height: fit-content;
+            display: flex;
+
+        }
+
+        .foter-div {
+            width: 20%;
+            padding-left: 1%;
+            padding-top: 0.5%;
+            padding-bottom: 30px;
+        }
+
+        #foter-div-image {
+            width: 50%;
+        }
+
+        .midle-divs {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .end-div{
+    display: flex;
+    flex-wrap: wrap;
+} */
+        #end-div-span {
+            color: rgba(142, 142, 142, 0.968);
+            font-size: x-small;
+        }
+
+        .foter-ancor {
+            text-decoration: none;
+            color: rgba(142, 142, 142, 0.968);
+            padding-bottom: 5%;
+        }
+
+        @media screen and (max-width : 767px) {
+            #foter {
+                flex-direction: column;
+            }
+
+            .foter-div {
+                width: 100%;
+            }
+
+            .foter-ancor {
+                padding-bottom: 2%;
+            }
+
+            #foter-div-image {
+                width: 150px;
+            }
+        }
+    </style>
+    <title>Universal Pictures | New Movies in Theaters & Future Releases</title>
+</head>
+
+<body>
+    <div id="Header-Master-Container">
+        <img id="Universal-Pictures-Icon" src="https://www.universalpictures.com/assets/img/universalglobe.png" alt="universalglobe">
+        <img id="Universal-Pictures-Icon-Mini" src="https://www.universalpictures.com/assets/img/logo-mobile.jpg" alt="universalglobe">
+        <div id="Header-Container">
+            <div class="dropdown">
+                <a class="btn btn-secondary " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Movies</a></li>
+                    <li><a class="dropdown-item" href="#">Trailers</a></li>
+                    <li><a class="dropdown-item" href="#">News & Press</a></li>
+                    <li><a class="dropdown-item" href="#">More</a></li>
+                </ul>
+            </div>
+            <div id="Header-ancor">
+                <div class="Header-ancor-tags" href="">
+                    <a class="Header-ancor-tags-tag" href="">Movies</a>
+                    <div class="Header-dropdown-main-Container">
+                        <div class="sub-div-1">
+                            <div class="movie-div">
+                                <img class="Movie-Image" src="https://movies.universalpictures.com/media/02-tws-dm-thumbnail-803x519-km-f01-020924-65c966aa91be8-1.jpg" alt="Mivie-1">
+                                <a class="Movie-Name" href="">Twisters</a>
+                                <a class="Movie-status" href="">IN THEATERS NOW</a>
+                            </div>
+                            <div class="movie-div">
+                                <img class="Movie-Image" src="https://movies.universalpictures.com/media/04-dm4-dm-thumbnail-803x519-rr-f01-042624-663a431438230-1.jpg" alt="Mivie-1">
+                                <a class="Movie-Name" href="">Despicable Me 4</a>
+                                <a class="Movie-status" href="">IN THEATERS NOW</a>
+                            </div>
+                            <div class="movie-div">
+                                <img class="Movie-Image" src="https://movies.universalpictures.com/media/03-sne-dm-thumbnail-803x519-ew-f01-070924-668edbbe87fae-1.jpg" alt="Mivie-1">
+                                <a class="Movie-Name" href="">Speak No Evil</a>
+                                <a class="Movie-status" href="">ONLY IN THEATERS SEPTEMBER 13</a>
+                            </div>
+                            <div class="movie-div">
+                                <img class="Movie-Image" src="https://movies.universalpictures.com/media/02-wrb-dm-thumbnail-803x519-sl-f01-030124-65e7408d48592-1.jpg" alt="Mivie-1">
+                                <a class="Movie-Name" href="">The Wild Robot</a>
+                                <a class="Movie-status" href="">IN THEATERS SEPTEMBER 27</a>
+                            </div>
+                            <div class="movie-div">
+                                <img class="Movie-Image" src="https://movies.universalpictures.com/media/02-wkd-dm-thumbnail-803x519-sl-f01-050324-66438f87f2ff8-1.jpg" alt="Mivie-1">
+                                <a class="Movie-Name" href="">Wicked</a>
+                                <a class="Movie-status" href="">THANKSGIVING</a>
+                            </div>
+                        </div>
+
+                        <div class="sub-div-2">
+                            <a class="sub-div-2-ancors" href="">Now Playing</a>
+                            <a class="sub-div-2-ancors" href="">Comming Soon</a>
+                            <a class="sub-div-2-ancors" href="">Feature Release</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="Header-ancor-tags" href="">Trailer</a>
+                <a class="Header-ancor-tags" href="">News&Press</a>
+                <div id="dot-dropdown-container">
+                    <a class="Header-ancor-tags" id="dots" href="">...
+                    </a>
+                    <div id="dot-dropdown">
+                        <a class="dot-ancor" href="">About</a>
+                        <a class="dot-ancor" href="">Leadership Team</a>
+                        <a class="dot-ancor" href="">NBCUniversal</a>
+                        <a class="dot-ancor" href="">Home Entertainment</a>
+                        <a class="dot-ancor" href="">Universal Products & Experiences</a>
+                        <a class="dot-ancor" href="">Global Talent Development and Inclusion</a>
+                        <a class="dot-ancor" href="">Universal Studios Parks & Resorts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Header-Icons">
+            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+            <a href=""><i class="fa-brands fa-tiktok"></i></a>
+            <a href=""><i class="fa-brands fa-snapchat"></i></a>
+        </div>
+    </div>
+    <div id="hero">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.postimg.cc/Hx37rXQT/baner-1-Edited.jpg" class="d-block w-100 baner1" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/WpJNy0HC/baner-2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/638WtZ57/baner-3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/WbG2NTj7/baner-4.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/J4Zhsj3Z/baner-5.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-pre" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden" id="buton">Previous</span>
+            </button>
+            <button class="carousel-control-nex" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <div class="baner-buton">
+                <a class="ancor-button" href="">GET TICKETS</a>
+                <button type="button" class="baner-buton-in1"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="baner-buton2" id="button-left">
+                <a class="ancor-button2" href="">ABOUT THE FILM</a>
+                <button type="button" class="baner-buton-in2"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="baner-buton2" id="button-right">
+                <a class="ancor-button2" href="">WATCH THE TRAILER</a>
+                <button type="button" class="baner-buton-in2"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div id="hero-movie-div">
+            <div class="hero-movies">
+                <img class="hero-movies-images" src="https://movies.universalpictures.com/media/02-tws-dm-thumbnail-803x519-km-f01-020924-65c966aa91be8-1.jpg" alt="">
+                <div class="hero-movies-inner-text">
+                    <a class="Movie-Name2" href="">Twisters</a>
+                    <a class="Movie-status2" href="">IN THEATERS NOW</a>
+                </div>
+            </div>
+            <div class="hero-movies">
+                <img class="hero-movies-images" src="https://movies.universalpictures.com/media/04-dm4-dm-thumbnail-803x519-rr-f01-042624-663a431438230-1.jpg" alt="">
+                <div class="hero-movies-inner-text">
+                    <a class="Movie-Name2" href="">Despicable Me 4</a>
+                    <a class="Movie-status2" href="">IN THEATERS NOW</a>
+                </div>
+            </div>
+            <div class="hero-movies">
+                <img class="hero-movies-images" src="https://movies.universalpictures.com/media/03-sne-dm-thumbnail-803x519-ew-f01-070924-668edbbe87fae-1.jpg" alt="">
+                <div class="hero-movies-inner-text">
+                    <a class="Movie-Name2" href="">Speak No Evil</a>
+                    <a class="Movie-status2" href="">ONLY IN THEATERS SEPTEMBER 13</a>
+                </div>
+            </div>
+            <div class="hero-movies">
+                <img class="hero-movies-images" src="https://movies.universalpictures.com/media/02-wrb-dm-thumbnail-803x519-sl-f01-030124-65e7408d48592-1.jpg" alt="">
+                <div class="hero-movies-inner-text">
+                    <a class="Movie-Name2" href="">The Wild Robot</a>
+                    <a class="Movie-status2" href="">IN THEATERS SEPTEMBER 27</a>
+                </div>
+            </div>
+            <div class="hero-movies">
+                <img class="hero-movies-images" src="https://movies.universalpictures.com/media/02-wkd-dm-thumbnail-803x519-sl-f01-050324-66438f87f2ff8-1.jpg" alt="">
+                <div class="hero-movies-inner-text">
+                    <a class="Movie-Name2" href="">Wicked</a>
+                    <a class="Movie-status2" href="">THANKSGIVING</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="movie-div">
+        <div class="hero-movies2">
+            <img class="hero-movies-images3" src="https://movies.universalpictures.com/media/02-tws-dm-thumbnail-803x519-km-f01-020924-65c966aa91be8-1.jpg" alt="">
+            <a class="Movie-Name2" href="">Twisters</a>
+            <a class="Movie-status2" href="">IN THEATERS NOW</a>
+        </div>
+        <div class="hero-movies2">
+            <img class="hero-movies-images3" src="https://movies.universalpictures.com/media/04-dm4-dm-thumbnail-803x519-rr-f01-042624-663a431438230-1.jpg" alt="">
+            <a class="Movie-Name2" href="">Twisters</a>
+            <a class="Movie-status2" href="">IN THEATERS NOW</a>
+        </div>
+        <div class="hero-movies2">
+            <img class="hero-movies-images3" src="https://movies.universalpictures.com/media/03-sne-dm-thumbnail-803x519-ew-f01-070924-668edbbe87fae-1.jpg" alt="">
+            <a class="Movie-Name2" href="">Twisters</a>
+            <a class="Movie-status2" href="">IN THEATERS NOW</a>
+        </div>
+        <div class="hero-movies2">
+            <img class="hero-movies-images3" src="https://movies.universalpictures.com/media/02-wrb-dm-thumbnail-803x519-sl-f01-030124-65e7408d48592-1.jpg" alt="">
+            <a class="Movie-Name2" href="">Twisters</a>
+            <a class="Movie-status2" href="">IN THEATERS NOW</a>
+        </div>
+        <div class="hero-movies2">
+            <img class="hero-movies-images3" src="https://movies.universalpictures.com/media/02-wkd-dm-thumbnail-803x519-sl-f01-050324-66438f87f2ff8-1.jpg" alt="">
+            <a class="Movie-Name2" href="">Twisters</a>
+            <a class="Movie-status2" href="">IN THEATERS NOW</a>
+        </div>
+    </div>
+    <div id="Second-Hero">
+        <div class="Second-Hero-div1">
+            <h2 id="hero2-div1-1">
+                Trailers
+            </h2>
+            <a id="hero2-div1-2" href="">
+                <i class="fa-brands fa-youtube "></i>FOLLOW
+            </a>
+        </div>
+        <div class="Second-Hero-div2">
+            <div class="hero2-div2-1">
+                <a href=""><img class="Trailer1" src="https://i.ytimg.com/vi/wdok0rZdmx4/maxresdefault.jpg" alt=""></a>
+                <span>TWISTERS | Official Trailer</span>
+            </div>
+            <div class="hero2-div2-1 disapear2">
+                <a href=""><img class="Trailer1" src="https://i.ytimg.com/vi/67vbA5ZJdKQ/maxresdefault.jpg" alt=""></a>
+                <span>The Wild Roboat| Official Trailer 2</span>
+            </div>
+            <div class="hero2-div2-1 disapear">
+                <a href=""><img class="Trailer1 " src="https://i.ytimg.com/vi/Jm27YjLnPHc/maxresdefault.jpg" alt=""></a>
+                <span>TWISTERS | Official Trailer 2</span>
+            </div>
+            <div class="hero2-div2-1 disapear">
+                <a href=""><img class="Trailer1 " src="https://i.ytimg.com/vi/aqa3YTtwvaU/maxresdefault.jpg" alt=""></a>
+                <span>Monkey Man| Official Trailer 2</span>
+            </div>
+
+        </div>
+    </div>
+    <div id="third-hero-main-container">
+        <div id="third-hero-container-1">
+            <img id="third-hero-image-1" src="https://www.universalpictures.com/media/pktv-00083360-000247729-66a1757496f99.jpg" alt="">
+        </div>
+        <div id="third-hero-container-2">
+            <div id="signup-container">
+                <h3 id="heading-hero3">BE THE FIRST TO KNOW</h3>
+                <p id="para-hero3">Sign up now for exclusive giveaways, advance screenings, sneak-peeks and much, much
+                    more.</p>
+                <form action="">
+                    <input type="email" placeholder="YOUR EMAIL ADDRESS">
+                    <button id="submit" type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="hero-4">
+        <div class="hero-4-container-1">
+            <div class="hero-4-subcontainer boder-left">
+                <p class="hero-4-para">
+                    Trolls Band Together Brings the Trolls Magic to Life with Products, Games, Experiences, and More
+                </p>
+                <p class="hero-4-para2">
+                    November 16, 2023 | via www.nbcuniversal.com
+                </p>
+                <a href="">KEEP READING</a>
+            </div>
+            <div class="hero-4-subcontainer">
+                <p class="hero-4-para">
+                    Next Gen 2023: The Hollywood Reporter’s 35 Rising Executives 35 and Under ft. Michelle Momplaisir,
+                    Kelsey Balance and Megan Macmillan
+                </p>
+                <p class="hero-4-para2">
+                    November 15, 2023 | via www.hollywoodreporter.com
+                </p>
+                <a href="">KEEP READING</a>
+            </div>
+        </div>
+        <div class="hero-4-container-1">
+            <div class="hero-4-subcontainer">
+                <p class="hero-4-para">
+                    Donna Langley, Veronika Kwan Vandenberg and Pearlena Igbokwe Named to Variety Power of Women in
+                    Hollywood 2023
+                </p>
+                <p class="hero-4-para2">
+                    November 15, 2023 | via variety.com
+                </p>
+                <a href="">KEEP READING</a>
+            </div>
+            <div class="hero-4-subcontainer">
+                <p class="hero-4-para">
+                    Focus Features Lands U.S. Rights To Edward Berger’s Papal Thriller ‘Conclave’ Starring Ralph Fiennes
+                    And Stanley Tucci
+                </p>
+                <p class="hero-4-para2">
+                    November 10, 2023 | via deadline.com
+                </p>
+                <a href="">KEEP READING</a>
+            </div>
+        </div>
+    </div>
+    <div id="botem-image">
+        <img class="botem-images"
+            src="https://www.universalpictures.com/media/pktv-00082610-000246461-6679a5240840c.jpg" alt="">
+        <img class="botem-images"
+            src="https://www.universalpictures.com/media/paris24-crm-072724-960x500-66a7e1544aa95.jpg" alt="">
+    </div>
+    <div id="foter">
+        <div class="foter-div ">
+            <img id="foter-div-image" src="https://www.universalpictures.com/assets/svg/universallogo.svg" alt="">
+        </div>
+        <div class="foter-div midle-divs">
+            <a class="foter-ancor" href="">Movies</a>
+            <a class="foter-ancor" href="">Trailer</a>
+            <a class="foter-ancor" href="">News & Press</a>
+        </div>
+        <div class="foter-div midle-divs">
+            <a class="foter-ancor" href="">About</a>
+            <a class="foter-ancor" href="">NBCUniversal</a>
+            <a class="foter-ancor" href="">Home Entertainment</a>
+            <a class="foter-ancor" href="">Universal Products & Experiences</a>
+            <a class="foter-ancor" href="">Global Talent Development and Inclusion</a>
+            <a class="foter-ancor" href="">Universal Studios Parks & Resorts</a>
+            <a class="foter-ancor" href="">Careers</a>
+            <a class="foter-ancor" href="">Sitemap</a>
+        </div>
+        <div class="foter-div midle-divs">
+            <a class="foter-ancor" href="">Terms of Service</a>
+            <a class="foter-ancor" href="">Privacy Policy</a>
+            <a class="foter-ancor" href="">Cookie Notice</a>
+            <a class="foter-ancor" href="">Ad Choices</a>
+            <a class="foter-ancor" href="">CA Notice</a>
+            <a class="foter-ancor" href="">Canada</a>
+            <a class="foter-ancor" href="">International</a>
+            <a class="foter-ancor" href="">ParentalGuide.com</a>
+            <a class="foter-ancor" href="">FilmRatings.com</a>
+            <a class="foter-ancor" href="">MPAA.org</a>
+            <a class="foter-ancor" href="">Contact Us</a>
+            <a class="foter-ancor" href="">Tobacco Policy</a>
+            <a class="foter-ancor" href="">YouTube Terms of Service</a>
+            <a class="foter-ancor" href="">Google Privacy Policy</a>
+        </div>
+        <div class="foter-div end-div">
+            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+            <a href=""><i class="fa-brands fa-tiktok"></i></a>
+            <a href=""><i class="fa-brands fa-snapchat"></i></a><br>
+            <span id="end-div-span">©2024 Universal Pictures</span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
